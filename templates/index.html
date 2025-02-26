@@ -11,7 +11,7 @@
             <h1>To-Do List</h1>
             <div style="display: flex; align-items: center;">
                 <h3>User</h3>
-                <a href="./login.html" style="text-decoration: none; color: red;">
+                <a href="logout/" style="text-decoration: none; color: red;">
                 Log out
                 </a>
             </div>
@@ -21,7 +21,7 @@
         <form id="task-form" method="post">
             {% csrf_token %}
             <div class="form1">
-              <input type="text" name="title" placeholder="Add title">
+              <input type="text" name="title" placeholder="Add title" required>
               <input type="date" name="deadline">
               <select name="status">
                 <option class="opt">
