@@ -53,18 +53,12 @@
 <body>
 	<div class="container">
 		<h1>Login Page</h1>
-			<form method="post" action="{% url 'register' %}">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password1" placeholder="Parol">
-    <input type="password" name="password2" placeholder="Parol tasdiqi">
-    <input type="email" name="email" placeholder="Email">
-    <input type="hidden" name="action" value="get_code">
-    <button type="submit">Kod olish</button>
-</form>
+		<form method="post">
+			{% csrf_token %}
+			<input type="number" name="kod" placeholder="Enter password ...">
+			<button>Register</button>
 
-
-
+		</form>
 		 <a href='{% url "login" %}'>
 				<button>Log in</button>
 			</a>
