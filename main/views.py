@@ -86,11 +86,6 @@ def logout_view(request):
     return redirect('login')
 
 
-kod = None
-email = None
-password1 = None
-username = None
-
 
 def register_view(request):
     if request.method == 'POST':
@@ -105,7 +100,7 @@ def register_view(request):
             request.session['password1'] = request.POST.get('password1')
             request.session['email'] = request.POST.get('email')
 
-            print(f"Kod: {kod}, Email: {request.session['email']}")  # Tekshirish uchun
+            print(f"Kod: {kod}, Email: {request.session['email']}")
             return redirect("confirm")
 
     return render(request, "register.html")
@@ -116,14 +111,9 @@ def confirm_view(request):
     smtp_port = 587
     sender_email = 'nabiqorinabiyev35@gmail.com'
     sender_password = 'bmdwdzdrrzjbgmgk'
-    receiver_email = request.session.get('email')  # Sessiyadan olib ishlatamiz
+    receiver_email = request.session.get('email')
     kod = request.session.get('kod')
 
-    if receiver_email is None:
-        print("Xatolik: Email yo‘q!")
-        return redirect('register')
-
-    print(receiver_email)  # Tekshirish uchun
 
     msg = MIMEMultipart()
     msg['From'] = sender_email
